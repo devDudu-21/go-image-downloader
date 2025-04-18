@@ -41,6 +41,34 @@ This project is an image downloader written in Go. It reads an Excel spreadsheet
    URL 2  
    URL 3
 
+## Cross Compilation
+
+You can generate binaries for different platforms using the environment variables GOOS and GOARCH:
+
+- To compile for Windows (on non-Windows systems):
+
+  ```bash
+  GOOS=windows go build -o img-downloader.exe
+  ```
+
+- To compile for Linux:
+
+  ```bash
+  GOOS=linux go build -o img-downloader
+  ```
+
+- To compile for a different architecture (example: PowerPC on Linux):
+
+  ```bash
+  GOOS=linux GOARCH=ppc64 go build -o img-downloader
+  ```
+
+Use filename suffixes (for example, \_windows or \_unix) to organize platform-specific implementations if needed. Refer to the official Go documentation for more details on possible combinations by running:
+
+```bash
+go tool dist list
+```
+
 ## Project Structure
 
 - main.go: Main logic for reading the Excel file and downloading images.
