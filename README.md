@@ -1,43 +1,51 @@
 # go-image-downloader
 
-## Descrição
+## Description
 
-Este projeto é um downloader de imagens escrito em Go. Ele lê uma planilha Excel e baixa as imagens listadas, salvando-as em uma pasta de saída definida pelo usuário.
+This project is an image downloader written in Go. It reads an Excel spreadsheet and downloads the listed images, saving them into an output folder specified by the user.
 
-## Requisitos
+## Requirements
 
-- Go (versão 1.13+ recomendada)
-- Biblioteca: github.com/xuri/excelize/v2
+- Go (version 1.13+ is recommended)
+- Library: github.com/xuri/excelize/v2
 
-## Uso
+## Usage
 
-1. Compile o projeto:
+1. Compile the project:
+
+   For Linux and macOS:
 
    ```bash
    go build -o img-downloader
    ```
 
-2. Execute o binário:
+   For Windows:
+
+   ```bash
+   go build -o img-downloader.exe
+   ```
+
+2. Run the binary:
 
    ```bash
    ./img-downloader
    ```
 
-3. Siga as instruções no terminal:
+3. Follow the terminal instructions:
 
-   - Informe o nome da pasta de saída.
-   - Informe o nome do arquivo Excel (com extensão) que contém as URLs.
+   - Enter the output folder name.
+   - Enter the Excel file name (with extension) that contains the URLs.
 
-   As planilhas devem conter uma URL por linha. Por exemplo:
-   URL 1
-   URL 2
+   The spreadsheet should have one URL per line. For example:
+   URL 1  
+   URL 2  
    URL 3
 
-## Estrutura do Projeto
+## Project Structure
 
-- main.go: Lógica principal para leitura do Excel e download das imagens.
-- README.md: Documentação do projeto.
+- main.go: Main logic for reading the Excel file and downloading images.
+- README.md: Project documentation.
 
-## Licença
+## License
 
-MIT (ou outra licença de sua preferência)
+MIT (or any other license of your choice)
