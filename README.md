@@ -37,6 +37,7 @@ This project is an image downloader written in Go. It reads an Excel spreadsheet
    - Enter the Excel file name (with extension) that contains the URLs.
 
    The spreadsheet should have one URL per line. For example:
+   
    URL 1  
    URL 2  
    URL 3
