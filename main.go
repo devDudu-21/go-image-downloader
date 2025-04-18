@@ -8,6 +8,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -30,6 +31,15 @@ func main() {
         return
     } else {
         fmt.Println("Folder", output, "created or already exists.")
+    }
+
+    fmt.Print("Set the maximum number of concurrent downloads: ")
+    concurrencyStr, _ := reader.ReadString('\n')
+    concurrencyStr = strings.TrimSpace(concurrencyStr)
+    maxConcurrency, err := strconv.Atoi(concurrencyStr)
+    if err != nil || maxConcurrency <= 0 {
+        fmt.Println("Concurrency value is invalid. Falling back to default: 20")
+        maxConcurrency = 20
     }
 
     fmt.Print("Enter the name of the Excel file with extension: ")
@@ -55,7 +65,7 @@ func main() {
 
     var wg sync.WaitGroup
 
-    semaphore := make(chan struct{}, 20)
+    semaphore := make(chan struct{}, maxConcurrency)
     var count int32
 
     for _, row := range rows {
